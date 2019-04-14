@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-void my_noop(int client)
+void noop(int client)
 {
     if (send(client, "200 Command okay.\r\n", 19, 0) == -1)
         exit (84);

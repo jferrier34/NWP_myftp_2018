@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-void my_quit(int client)
+void quit(int client)
 {
     if (send(client, "221 Service closing control connection.\r\n", 41, 0) == -1)
         exit (0);
@@ -50,13 +50,13 @@ void command_all(int client, char *recup, char **av)
     char **my_tab;
     my_tab = my_tabb(recup);
     if (strcmp(my_tab[0], "QUIT") == 0)
-        my_quit(client);
+        quit(client);
     if (strcmp(my_tab[0], "NOOP") == 0)
-        my_noop(client);
+        noop(client);
     if (strcmp(my_tab[0], "HELP") == 0)
-        my_help(client);
+        help(client);
     if (strcmp(my_tab[0], "PWD") == 0)
-        my_pwd(client, av[2]);
+        pwd(client, av[2]);
 }
 
 void login_user(int sock, char **av)
