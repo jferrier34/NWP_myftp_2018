@@ -45,7 +45,7 @@ int user_check(int sock, FILE *need)
     return (0);
 }
 
-void command_all(int client, char *recup)
+void command_all(int client, char *recup, char **av)
 {
     char **my_tab;
     my_tab = my_tabb(recup);
@@ -55,7 +55,7 @@ void command_all(int client, char *recup)
         my_noop(client);
 }
 
-void login_user(int sock)
+void login_user(int sock, char **av)
 {
     int check_user = 0;
     int check_pass = 0;
@@ -67,7 +67,7 @@ void login_user(int sock)
         check_pass = password_check(sock, need);
     if (check_user == 1 && check_pass == 1) {
         while (getline(&recup, &size, need) != -1)
-            command_all(sock, recup);
+            command_all(sock, recup, av);
         shutdown(sock, 2);
         fclose(need);
         exit(0);

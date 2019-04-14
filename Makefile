@@ -14,7 +14,9 @@ NAME	=	myftp
 
 CFLAGS	=	-Wall -Wextra -pedantic
 
-SRC	=	./Src/main.c	
+SRC	=	./Src/main.c	\
+		./Src/file2.c	\
+		./Src/file3.c		
 
 OBJ	=	$(SRC:.c=.o)
 

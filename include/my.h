@@ -22,15 +22,15 @@
 
 void my_noop(int client);
 int password_check(int sock, FILE *need);
-void command_user(int sock);
+void command_user(int sock, char **av);
 void my_quit(int client);
 char **my_tabb(char *tab);
 int user_check(int sock, FILE *need);
-void command_all(int client, char *recup);
-void login_user(int sock);
+void command_all(int client, char *recup, char **av);
+void login_user(int sock, char **av);
 void error(int ac, char **av);
 struct sockaddr_in complete_addr(char **av);
-void main_fonct(int sock, struct sockaddr_in addr);
+void main_fonct(int sock, struct sockaddr_in addr, char **av);
 void complete_info(char **av);
 
 

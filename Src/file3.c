@@ -25,7 +25,7 @@ struct sockaddr_in complete_addr(char **av)
     return (addr);
 }
 
-void main_fonct(int sock, struct sockaddr_in addr)
+void main_fonct(int sock, struct sockaddr_in addr, char **av)
 {
     socklen_t tmp;
     pid_t pid;
@@ -40,7 +40,7 @@ void main_fonct(int sock, struct sockaddr_in addr)
         }
         pid = fork();
         if (pid == 0) {
-            command_user(client_sock);
+            command_user(client_sock, av);
             shutdown(client_sock, 2);
             exit(0);
         }
@@ -61,5 +61,5 @@ void complete_info(char **av)
         exit(84);
     if (listen(sock, 42) == -1)
         exit(84);
-    main_fonct(sock, addr);
+    main_fonct(sock, addr, av);
 }
