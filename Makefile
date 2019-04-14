@@ -16,7 +16,8 @@ CFLAGS	=	-Wall -Wextra -pedantic
 
 SRC	=	./Src/main.c	\
 		./Src/file2.c	\
-		./Src/file3.c		
+		./Src/file3.c	\
+		./Src/file4.c
 
 OBJ	=	$(SRC:.c=.o)
 

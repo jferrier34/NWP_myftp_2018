@@ -25,6 +25,8 @@ int password_check(int sock, FILE *need);
 void command_user(int sock, char **av);
 void my_quit(int client);
 char **my_tabb(char *tab);
+void my_help(int client);
+void my_pwd(int client, char *dir);
 int user_check(int sock, FILE *need);
 void command_all(int client, char *recup, char **av);
 void login_user(int sock, char **av);

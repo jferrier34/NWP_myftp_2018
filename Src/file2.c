@@ -53,6 +53,10 @@ void command_all(int client, char *recup, char **av)
         my_quit(client);
     if (strcmp(my_tab[0], "NOOP") == 0)
         my_noop(client);
+    if (strcmp(my_tab[0], "HELP") == 0)
+        my_help(client);
+    if (strcmp(my_tab[0], "PWD") == 0)
+        my_pwd(client, av[2]);
 }
 
 void login_user(int sock, char **av)
