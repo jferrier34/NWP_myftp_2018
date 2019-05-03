@@ -7,7 +7,6 @@
 
 #include "../include/my.h"
 
-
 void error(int ac, char **av)
 {
     if (ac != 3)
@@ -30,11 +29,12 @@ void main_fonct(int sock, struct sockaddr_in addr, char **av)
     socklen_t tmp;
     pid_t pid;
     int client_sock = 0;
-    while(1) {
+    while (1) {
         tmp = sizeof(addr);
         if ((client_sock = accept(sock, (struct sockaddr *)&addr, &tmp)) == -1)
             exit(84);
-        if (send(client_sock, "220 Service ready for new user.\r\n", 33, 0) == -1) {
+        if (send(client_sock, "220 Service ready for new user.\r\n", 33, 0)
+        == -1) {
             shutdown(client_sock, 2);
             exit(84);
         }

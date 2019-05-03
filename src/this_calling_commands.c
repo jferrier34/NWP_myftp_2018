@@ -9,7 +9,8 @@
 
 void quit(int client)
 {
-    if (send(client, "221 Service closing control connection.\r\n", 41, 0) == -1)
+    if (send(client, "221 Service closing control connection.\r\n", 41, 0)
+    == -1)
         exit (0);
     shutdown(client, 2);
     exit(0);
@@ -38,7 +39,7 @@ int user_check(int sock, FILE *need)
         return (0);
     }
     if (strcmp(dubl_tab[1], tab) == 0) {
-        if(send(sock, "331 User name okay, need password.\r\n", 36, 0) < 0)
+        if (send(sock, "331 User name okay, need password.\r\n", 36, 0) < 0)
             exit(84);
         return (1);
     }

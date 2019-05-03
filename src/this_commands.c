@@ -11,7 +11,7 @@ void help(int client)
 {
     send(client, "214 Help message.\r\n", 19, 0);
 }
- 
+
 void pwd(int client, char *dir)
 {
     dprintf(client, "257 \"%s\" created.\r\n", dir);

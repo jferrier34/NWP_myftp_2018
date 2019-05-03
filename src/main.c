@@ -22,24 +22,22 @@ int password_check(int sock, FILE *need)
     if (getline(&dir, &size, need) == -1)
         exit (84);
     dubl_tab = my_tabb(dir);
-    if (strcmp(dubl_tab[0], "PASS") != 0) { 
+    if (strcmp(dubl_tab[0], "PASS") != 0){ 
         send(sock, "332 Need account for login.\r\n", 29, 0);
         return (0);
     }
-    if (strcmp(dubl_tab[1], tab) == 0) {
-        if(send(sock, "230 User logged in, proceed.\r\n", 30, 0) < 0)
+    if (strcmp(dubl_tab[1], tab) == 0){
+        if (send(sock, "230 User logged in, proceed.\r\n", 30, 0) < 0)
             exit (84);
         return (1);
     }
     return (0);
 }
 
-
 void command_user(int sock, char **av)
 {
     login_user(sock, av);
 }
-
 
 int main(int ac, char **av)
 {
